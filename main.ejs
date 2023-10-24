@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO DO LIST</title>
+</head>
+
+<body>
+    <h3 id="date"> <%= listTitle  %> </h3>
+    <hr>
+    <% itemlist.forEach((item)=> { %> <%# itemlist array is an array from the res.render array %>
+            <form action="/delete" method="post">
+                <input type="checkbox" name="id" value="<%= item._id  %>" id="" onChange="this.form.submit()">
+                <%= item.name %><hr>
+                <input type="hidden" name="list" value="<%=listTitle %>" > 
+                     
+            </form>
+            <% }); %>
+
+ 
+            <form action="/add" method="post">
+                    <input type="text" name="newItem" id="" placeholder="New Item" required>
+                     <button type="submit" name="list" value="<%=listTitle %>">+</button>
+            </form>
+</body>
+<script>
+    // const date = new Date();
+    // document.getElementById('date').innerHTML = date;
+
+
+
+</script>
+
+</html>
